@@ -99,7 +99,7 @@ tag`. The `encoding` attribute lets you specify the barcode encoding
 used, and its presence is mandatory. The following encodings are 
 supported: `UPC-A`,`UPC-E`,`EAN13`,`EAN8`,`CODE39`,`ITF`,`NW7`.
 
-    <barcode encoding="EAN13">
+    <barcode encoding='EAN13'>
         5400113509509
     </barcode>
 
@@ -125,7 +125,7 @@ the formatting of the provided number. The following attributes are supported:
  - `value-decimals` : The number of decimals
  - `value-width`    : The number will be left-padded with zeroes until its 
    formatting has that many characters.
- - `value-decimals-separator` : The character used to seprate the decimal and
+ - `value-decimals-separator` : The character used to separate the decimal and
    integer part of the number.
  - `value-thousands-separator` : The character used to separate thousands.
  - `value-autoint` : The number will not print decimals if it is an integer
