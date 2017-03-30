@@ -173,7 +173,7 @@ BARCODE_TXT_BLW = '\x1d\x48\x02' # HRI barcode chars below
 BARCODE_TXT_BTH = '\x1d\x48\x03' # HRI barcode chars both above and below
 BARCODE_FONT_A  = '\x1d\x66\x00' # Font type A for HRI barcode chars
 BARCODE_FONT_B  = '\x1d\x66\x01' # Font type B for HRI barcode chars
-BARCODE_HEIGHT  = '\x1d\x68\x64' # Barcode Height [1-255]
+BARCODE_HEIGHT  = '\x1d\x68\x50' # Barcode Height [1-255]
 BARCODE_WIDTH   = '\x1d\x77\x03' # Barcode Width  [2-6]
 BARCODE_UPC_A   = '\x1d\x6b\x00' # Barcode type UPC-A
 BARCODE_UPC_E   = '\x1d\x6b\x01' # Barcode type UPC-E
@@ -182,6 +182,17 @@ BARCODE_EAN8    = '\x1d\x6b\x03' # Barcode type EAN8
 BARCODE_CODE39  = '\x1d\x6b\x04' # Barcode type CODE39
 BARCODE_ITF     = '\x1d\x6b\x05' # Barcode type ITF
 BARCODE_NW7     = '\x1d\x6b\x06' # Barcode type NW7
+BARCODE_CODABAR = '\x1d\x6b\x71' # Barcode type CODEABAR
+BARCODE_CODE93  = '\x1d\x6b\x72' # Barcode type CODE93
+BARCODE_CODE128 = '\x1d\x6b\x73' # Barcode type 128
+BARCODE_GS1_128 = '\x1d\x6b\x74' # Barcode type GS1-128
+BARCODE_GS1_DATABAR_OMNIDIRECTIONAL = '\x1d\x6b\x75' # Barcode type GS1 DATABAR OMNIDIRECTIONAL
+BARCODE_GS1_DATABAR_TRUNCATED = '\x1d\x6b\x76'       # Barcode type GS1 DATABAR TRUNCATED
+BARCODE_GS1_DATABAR_LIMITED = '\x1d\x6b\x77'         # Barcode type GS1 DATABAR LIMITED
+BARCODE_GS1_DATABAR_EXPANDED = '\x1d\x6b\x78'        # Barcode type GS1 DATABAR EXPANDED
+
+
+
 # Image format  
 S_RASTER_N      = '\x1d\x76\x30\x00' # Set raster image normal size
 S_RASTER_2W     = '\x1d\x76\x30\x01' # Set raster image double width
