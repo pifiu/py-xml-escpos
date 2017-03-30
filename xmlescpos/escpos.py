@@ -517,22 +517,6 @@ class Escpos:
             self._raw(BARCODE_ITF)
         elif bc.upper() == "NW7":
             self._raw(BARCODE_NW7)
-		elif bc.upper() == "CODABAR":
-            self._raw(BARCODE_CODABAR)
-		elif bc.upper() == "CODE93":
-            self._raw(BARCODE_CODE93)
-		elif bc.upper() == "CODE128":
-            self._raw(BARCODE_CODE128)
-		elif bc.upper() == "GS1_128":
-            self._raw(BARCODE_GS1_128)
-		elif bc.upper() == "GS1_DATABAR_OMNIDIRECTIONAL":
-            self._raw(BARCODE_GS1_DATABAR_OMNIDIRECTIONAL)
-		elif bc.upper() == "GS1_DATABAR_TRUNCATED":
-            self._raw(BARCODE_GS1_DATABAR_TRUNCATED)
-		elif bc.upper() == "GS1_DATABAR_LIMITED":
-            self._raw(BARCODE_GS1_DATABAR_LIMITED)
-		elif bc.upper() == "GS1_DATABAR_EXPANDED":
-            self._raw(BARCODE_GS1_DATABAR_EXPANDED)
         else:
             raise BarcodeTypeError()
         # Print Code
