@@ -97,7 +97,7 @@ or jpeg in a base64 data-url.
 It is possible to include barcodes in your receipt with the `barcode
 tag`. The `encoding` attribute lets you specify the barcode encoding
 used, and its presence is mandatory. The following encodings are 
-supported: `UPC-A`,`UPC-E`,`EAN13`,`EAN8`,`CODE39`,`ITF`,`NW7`.
+supported: `UPC-A`,`UPC-E`,`EAN13`,`EAN8`,`CODE39`,`ITF`,`NW7`, 'CODABAR', 'CODE93', 'CODE128', 'GS1_128', 'GS1_DATABAR_OMNIDIRECTIONAL', 'GS1_DATABAR_TRUNCATED', 'GS1_DATABAR_LIMITED', 'GS1_DATABAR_EXPANDED'.
 
     <barcode encoding='EAN13'>
         5400113509509

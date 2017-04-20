@@ -166,6 +166,41 @@ TXT_ENC_KATAKANA_MAP = {
   '\xef\xbe\x9f':'\xdf',  # ﾟ
 }
 
+# NOTE: This isn't actually an ESC/POS command. It's the common prefix to the two "print bar code" commands:
+#      -  Type A: "GS k <type as integer> <data> NUL"
+#      -  TYPE B: "GS k <type as letter> <data length> <data>"
+#      The latter command supports more barcode types
+
+# Barcodes for printing function type A
+#    'UPC-A':                      BARCODE_TYPE(0),
+#    'UPC-E':                      BARCODE_TYPE(1),
+#    'EAN13':                      BARCODE_TYPE(2),
+#    'EAN8':                       BARCODE_TYPE(3),
+#    'CODE39':                     BARCODE_TYPE(4),
+#    'ITF':                        BARCODE_TYPE(5),
+#    'NW7':                        BARCODE_TYPE(6),
+#    'CODABAR':                    BARCODE_TYPE(6),  # Same as NW7
+
+
+# Barcodes for printing function type B
+#The first 8 are the same barcodes as type A
+#BARCODE_TYPE_B = {
+#    'UPC-A':                       BARCODE_TYPE(65),
+#    'UPC-E':                       BARCODE_TYPE(66),
+#    'EAN13':                       BARCODE_TYPE(67),
+#    'EAN8':                        BARCODE_TYPE(68),
+#    'CODE39':                      BARCODE_TYPE(69),
+#    'ITF':                         BARCODE_TYPE(70),
+#    'NW7':                         BARCODE_TYPE(71),
+#    'CODABAR':                     BARCODE_TYPE(71),  # Same as NW7
+#    'CODE93':                      BARCODE_TYPE(72),
+#    'CODE128':                     BARCODE_TYPE(73),
+#    'GS1-128':                     BARCODE_TYPE(74),
+#    'GS1 DATABAR OMNIDIRECTIONAL': BARCODE_TYPE(75),
+#    'GS1 DATABAR TRUNCATED':       BARCODE_TYPE(76),
+#    'GS1 DATABAR LIMITED':         BARCODE_TYPE(77),
+#    'GS1 DATABAR EXPANDED':        BARCODE_TYPE(78),
+
 # Barcode format
 BARCODE_TXT_OFF = '\x1d\x48\x00' # HRI barcode chars OFF
 BARCODE_TXT_ABV = '\x1d\x48\x01' # HRI barcode chars above
@@ -174,17 +209,18 @@ BARCODE_TXT_BTH = '\x1d\x48\x03' # HRI barcode chars both above and below
 BARCODE_FONT_A  = '\x1d\x66\x00' # Font type A for HRI barcode chars
 BARCODE_FONT_B  = '\x1d\x66\x01' # Font type B for HRI barcode chars
 BARCODE_HEIGHT  = '\x1d\x68\x50' # Barcode Height [1-255]
-BARCODE_WIDTH   = '\x1d\x77\x03' # Barcode Width  [2-6]
-BARCODE_UPC_A   = '\x1d\x6b\x00' # Barcode type UPC-A
-BARCODE_UPC_E   = '\x1d\x6b\x01' # Barcode type UPC-E
-BARCODE_EAN13   = '\x1d\x6b\x02' # Barcode type EAN13
-BARCODE_EAN8    = '\x1d\x6b\x03' # Barcode type EAN8
-BARCODE_CODE39  = '\x1d\x6b\x04' # Barcode type CODE39
-BARCODE_ITF     = '\x1d\x6b\x05' # Barcode type ITF
-BARCODE_NW7     = '\x1d\x6b\x06' # Barcode type NW7
-BARCODE_CODE93  = '\x1d\x6b\x07' # Barcode type CODE93
-BARCODE_CODE128 = '\x1d\x6b\x08' # Barcode type CODE128
-BARCODE_CODABAR = '\x1d\x6b\x71' # Barcode type CODABAR
+BARCODE_WIDTH   = '\x1d\x77\x05' # Barcode Width  [2-6] (try 5 to see if it is wide enough for code128)
+#The values of "m" (e.g.: the "1" in "x01" from 0 to 6 and from 65 to 71 select the same bar code system, respectively. The printing results are the same.
+BARCODE_UPC_A   = '\x1d\x6b\x00' # Barcode type UPC-A (65)
+BARCODE_UPC_E   = '\x1d\x6b\x01' # Barcode type UPC-E (66)
+BARCODE_EAN13   = '\x1d\x6b\x02' # Barcode type EAN13 (67) Requires 13 digits of data
+BARCODE_EAN8    = '\x1d\x6b\x03' # Barcode type EAN8 (68) Requires 8 digits of data
+BARCODE_CODE39  = '\x1d\x6b\x04' # Barcode type CODE39 (69)(Must use "*" to start and "*" to end)
+BARCODE_ITF     = '\x1d\x6b\x05' # Barcode type ITF  (70)(Must be even numbers)
+BARCODE_NW7     = '\x1d\x6b\x06' # Barcode type NW7 (71)
+BARCODE_CODABAR = '\x1d\x6b\x71' # Barcode type CODABAR - Same as NW7
+BARCODE_CODE93  = '\x1d\x6b\x72' # Barcode type CODE93 (7?)
+BARCODE_CODE128 = '\x1d\x6b\x73' # Barcode type CODE128 (8?)  - For alphanumeric CODE128 you have to preface your payload with {B
 BARCODE_GS1_128 = '\x1d\x6b\x74' # Barcode type GS1-128
 BARCODE_GS1_DATABAR_OMNIDIRECTIONAL = '\x1d\x6b\x75' # Barcode type GS1 DATABAR OMNIDIRECTIONAL
 BARCODE_GS1_DATABAR_TRUNCATED = '\x1d\x6b\x76'       # Barcode type GS1 DATABAR TRUNCATED
